@@ -4,7 +4,7 @@
   "description": "Multiplayer game dengan rute nyata indonesia dan berbagai role seru",
   "icons": [
     {
-      "src": "maskable_app_icon.jpeg",
+      "src": "maskable_app_icon.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
