@@ -1,18 +1,18 @@
 {
-  "short_name": "Lensa AI Pro",
-  "name": "Lensa AI Pro Studio",
-  "description": "Platform AI Foto Produk untuk UMKM",
+  "short_name": "RRSid",
+  "name": "Rail Role Simulator Indonesia",
+  "description": "Multiplayer game dengan rute nyata indonesia dan berbagai role seru",
   "icons": [
     {
-      "src": "maskable_app_icon.png",
+      "src": "maskable_app_icon.jpeg",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
   "start_url": "index.html",
-  "background_color": "#131314",
-  "theme_color": "#131314",
+  "background_color": "#010159",
+  "theme_color": "#010159",
   "display": "standalone",
   "orientation": "portrait"
 }
