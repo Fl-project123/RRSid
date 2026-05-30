@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lensa AI Pro</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#131314">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #131314;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Desain Box Informasi yang Modern */
+        .card {
+            background-color: #1e1f20;
+            border: 1px solid #303132;
+            padding: 30px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 90%;
+            width: 360px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .logo-animation {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #303132;
+            border-top: 4px solid #a8c7fa;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        h2 {
+            color: #e3e2e6;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #c4c6d0;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        /* Tombol Aksi */
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.1s, background-color 0.2s;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .btn-install {
+            background-color: #a8c7fa;
+            color: #04305e;
+            display: none; /* Muncul otomatis jika belum terinstal */
+        }
+
+        .btn-open {
+            background-color: #303132;
+            color: #c4c6d0;
+            border: 1px solid #444746;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="logo-animation"></div>
+        <h2>Lensa AI Pro</h2>
+        <p>Platform AI khusus foto produk UMKM. Jalankan aplikasi untuk memulai kreasi tanpa batas.</p>
+        
+        <button class="btn btn-install" id="install-button">Instal Aplikasi di HP</button>
+        
+        <a href="https://aistudio.google.com/apps/c3694fc4-79b8-4fd2-9cae-ce09683c876f?fullscreenApplet=true" class="btn btn-open" id="open-button">Buka Google AI Studio</a>
+    </div>
+
+    <script>
+        const targetUrl = "https://aistudio.google.com/apps/c3694fc4-79b8-4fd2-9cae-ce09683c876f?fullscreenApplet=true";
+
+        // 1. Registrasi Service Worker PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js');
+            });
+        }
+
+        // 2. DETEKSI MODE: Jika user membuka lewat ikon HP yang sudah terinstal (Standalone)
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            // Langsung lempar ke Google AI Studio secara instan tanpa lewat halaman ini lagi mase!
+            window.location.href = targetUrl;
+        }
+
+        // 3. LOGIKA TOMBOL INSTAL DI CHROME HP
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // Tampilkan tombol instal karena user membuka via browser biasa
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installButton.style.display = 'none';
+            }
+            deferredPrompt = null;
+        });
+    </script>
+</body>
+</html>

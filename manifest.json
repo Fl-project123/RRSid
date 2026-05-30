@@ -1,0 +1,18 @@
+{
+  "short_name": "Lensa AI Pro",
+  "name": "Lensa AI Pro Studio",
+  "description": "Platform AI Foto Produk untuk UMKM",
+  "icons": [
+    {
+      "src": "maskable_app_icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#131314",
+  "theme_color": "#131314",
+  "display": "standalone",
+  "orientation": "portrait"
+}
