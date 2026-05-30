@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lensa-ai-v1';
+const CACHE_NAME = 'rrs-id-v1.0.0';
 const ASSETS = [
   'index.html',
   'manifest.json',
