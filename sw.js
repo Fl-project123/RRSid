@@ -2,7 +2,7 @@ const CACHE_NAME = 'rrs-id-v1.0.0';
 const ASSETS = [
   'index.html',
   'manifest.json',
-  'maskable_app_icon.jpeg'
+  'maskable_app_icon.png'
 ];
 
 self.addEventListener('install', (e) => {
