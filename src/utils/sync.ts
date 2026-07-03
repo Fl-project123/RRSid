@@ -6,14 +6,14 @@ import { getFirestore, initializeFirestore, doc, setDoc, getDoc, collection, get
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDaUUBTaLbLGHs927lXWlBYSyhHCi18D28",
-  authDomain: "rrsid-7c13b.firebaseapp.com",
-  databaseURL: "https://rrsid-7c13b-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "rrsid-7c13b",
-  storageBucket: "rrsid-7c13b.firebasestorage.app",
-  messagingSenderId: "1093796550948",
-  appId: "1:1093796550948:web:9cbec31d4eb79cf6cebbb1",
-  measurementId: "G-FLH7R603EJ"
+  apiKey: "AIzaSyDFFKzwPV2eRvMe7zQqq0NdW2iDwlxGwJ0",
+  authDomain: "rrsid-d28d1.firebaseapp.com",
+  databaseURL: "https://rrsid-d28d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "rrsid-d28d1",
+  storageBucket: "rrsid-d28d1.firebasestorage.app",
+  messagingSenderId: "962361272670",
+  appId: "1:962361272670:web:7f5d10b354fe6ed35a87cf",
+  measurementId: "G-DK2Y13613K"
 };
 
 // Initialize Firebase App, Database & Firestore
